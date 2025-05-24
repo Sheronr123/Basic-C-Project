@@ -1,0 +1,80 @@
+#include <iostream>
+#include <vector>
+# include <cmath>
+using namespace std;
+
+int main() {
+    vector<int> vec {1,2,3,4,5,6};
+    char option {};
+
+    cout << "Here is the list of numbers:" << endl;
+    for (int element: vec) {
+        cout << element << endl;
+    }
+
+    cout << endl;
+
+    cout << "P - Print Numbers" << endl;
+    cout << "A - Add a number" << endl;
+    cout << "M - Display mean of the numbers" << endl;
+    cout << "S - Print the smallest number" << endl;
+    cout << "L - Print the largest number" << endl;
+    cout << "Q - Quit" << endl;
+    cout << "Select..." << endl;
+
+    cin>>option;
+
+    if (vec.size() ==0) {
+        cout << "The list is empty";
+    }
+
+    else {
+        if (option == 'P' or option == 'p') {
+            cout << "Here are the list of integers:" << endl;
+            for (int element: vec) {
+                cout << element << endl;
+            }
+        }
+
+        else if (option == 'A' or option == 'a') {
+            int number {0};
+            cout << "What number do you want to add?...";
+            cin >> number;
+            vec.push_back(number);
+
+            cout << "Number added to the list:" << endl;
+            for (int element: vec) {
+                cout << element << endl;
+            }
+
+        }
+
+        else if (option == 'M' or option =='m') {
+            double mean {0};
+            for (int element: vec) {
+                mean += element;
+            }
+            cout << mean/vec.size();
+
+        }
+
+        else if (option == 'S' or option =='s') {
+            cout << *min_element(vec.begin(), vec.end());
+        }
+
+        else if (option == 'L' or option =='l') {
+            cout << *max_element(vec.begin(), vec.end());
+        }
+
+
+        else if (option == 'q' or option =='Q') {
+            cout << "Goodbye!";
+
+        }
+
+        else {
+            cout<< "Unknown selection, please try again!!!";
+        }
+    }
+
+}
